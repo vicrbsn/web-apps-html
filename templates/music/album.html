@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <h1>{{album.title}}</h1>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <article>
+        <!-- We'll use Jinja's `for` loop to iterate over all books -->
+            <!-- We can use {{ placeholders }} in HTML attributes too -->
+            <p>Released: {{album.release_year}}</p>
+            <p>Artist: {{artist.name}} </p>
+        <!-- Jinja isn't Python, so we need an endfor to close the loop -->
+        </article>
+
+        <!-- This is a link to another page. -->
+        <!-- The browser will send `GET /books/new` when the user clicks this -->
+        <!-- <a href="/books/new">Add a new book</a> --> 
+    </body>
+    </html>
