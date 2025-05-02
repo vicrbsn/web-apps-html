@@ -10,6 +10,7 @@ from lib.artist import Artist
 # Create a new Flask app
 app = Flask(__name__)
 
+# app route to retrieve a list of all albums 
 @app.route('/albums', methods=['GET'])
 def post_html_albums():
 
@@ -20,6 +21,7 @@ def post_html_albums():
 
     return render_template('music/index.html', albums=albums)
 
+# app route to receive information about a specific album by its unique album id 
 @app.route('/albums/<album_id>', methods=['GET'])
 def get_album(album_id):
     connection = get_flask_database_connection(app)

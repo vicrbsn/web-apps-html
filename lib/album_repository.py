@@ -5,6 +5,7 @@ class AlbumRepository:
     def __init__(self, connection):
         self._connection = connection
 
+    # function to return all of the albums from the database 
     def all(self):
         rows = self._connection.execute('SELECT * ' \
                                         'FROM albums')
@@ -14,12 +15,14 @@ class AlbumRepository:
             albums.append(item)
         return albums
 
+    # function to add a new album to the database
     def create(self, album):
         self._connection.execute('INSERT INTO albums ' \
                                 '(title, release_year, artist_id)' \
                                 'VALUES(%s, %s, %s)' , [album.title, album.release_year, album.artist_id])
         
-    
+
+    # function to find a specific album matching a certain id and return that as well as the relevant artist
     def find(self, id):
         row = self._connection.execute('SELECT albums.id AS album_id, * ' \
                                         'FROM albums ' \
